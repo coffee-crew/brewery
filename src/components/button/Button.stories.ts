@@ -19,7 +19,7 @@ type Story = StoryObj<typeof Button>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    primary: true,
+    isPrimary: true,
     label: 'Button',
   },
 };

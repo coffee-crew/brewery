@@ -5,7 +5,7 @@ interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
    */
-  primary?: boolean;
+  isPrimary?: boolean;
   /**
    * What background color to use
    */
@@ -27,8 +27,8 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+export const Button = ({ isPrimary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
+  const mode = isPrimary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
     <button
       type="button"
