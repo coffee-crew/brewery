@@ -23,6 +23,13 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "cucumber.js",
+    "src/app/(home)/stepdefs.js"
+  ],
   "exclude": ["node_modules"]
 }
