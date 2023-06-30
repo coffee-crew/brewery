@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-import './header.css';
-import { Button } from '../button/Button';
+import './header.css'
+import { Button } from '../button/Button'
 
 type User = {
-  name: string;
-};
+  name: string
+}
 
 interface HeaderProps {
-  user?: User;
-  onLogin: () => void;
-  onLogout: () => void;
-  onCreateAccount: () => void;
+  user?: User
+  onLogin: () => void
+  onLogout: () => void
+  onCreateAccount: () => void
 }
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps) => (
@@ -33,15 +33,15 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
             <span className="welcome">
               Welcome, <b>{user.name}</b>!
             </span>
-            <Button size="small" onClick={onLogout} label="Log out" />
+            <Button size="small" onClick={onLogout} label="Log out" data-cy="logout" />
           </>
         ) : (
           <>
-            <Button size="small" onClick={onLogin} label="Log in" />
-            <Button primary size="small" onClick={onCreateAccount} label="Sign up" />
+            <Button size="small" onClick={onLogin} label="Log in" data-cy="login" />
+            <Button isPrimary size="small" onClick={onCreateAccount} label="Sign up" data-cy="sign-up" />
           </>
         )}
       </div>
     </div>
   </header>
-);
+)
