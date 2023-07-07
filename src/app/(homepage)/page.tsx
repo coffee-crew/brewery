@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { Logo } from '../../components/logo/PageLogo';
 import { Button } from '~/components/button/Button';
+import { Survey } from '~/components/survey/Survey';
 
 // TODO: Wth is this?
 const inter = Inter({ subsets: ['latin'] })
@@ -40,6 +41,11 @@ const Home = () => {
 
         <div>
           <Button type="primary" label="Create your first poll" />
+        </div>
+        <div>
+          <div>
+            <Survey title="What do you think of this website?" lowest="It hurts my eyes!" highest="Most beautiful site ever!" />
+          </div>
         </div>
       </section>
     </main>
