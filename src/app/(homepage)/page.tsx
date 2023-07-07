@@ -1,7 +1,10 @@
 import Image from 'next/image'
+// "use client"
 import { Inter } from 'next/font/google'
 import { Logo } from '../../components/logo/PageLogo';
 import { Button } from '~/components/button/Button';
+import { Popup } from '../../components/rate-pop-up/RatePopUp'
+// import react, { useClient } from 'react-components';
 
 // TODO: Wth is this?
 const inter = Inter({ subsets: ['latin'] })
@@ -11,6 +14,7 @@ export const metadata = {
 }
 
 const Home = () => {
+  // useClient();
   return (
     <main>
       <header className="flex justify-between w-full">
@@ -42,6 +46,9 @@ const Home = () => {
           <Button type="primary" label="Create your first poll" />
         </div>
       </section>
+      <div>
+        <Popup />
+      </div>
     </main>
   )
 }
