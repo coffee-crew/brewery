@@ -14,7 +14,7 @@ export const Survey = ({ title, lowest, highest  }: SurveyProps) => {
   // const [rating, setRating] = useState(0);
 
   return (
-    <div>
+    <div className="absolute bottom-0 right-0">
       <button className="border-2 bg-white rounded drop-shadow-sm shadow-md w-10" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? (
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -53,7 +53,7 @@ export const Survey = ({ title, lowest, highest  }: SurveyProps) => {
       ) : (
         <div className="border-4 bg-white rounded drop-shadow-sm max-w-lg flex-col items-center content-center">
           <div className="m-2 "><b>{title}</b></div>
-          <button className="m-2 p-2 text-black rounded-xl bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">
+          <button className="m-2 p-2 text-black rounded-xl bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400" onClick={() => setIsOpen(!isOpen)}>
             Reply
           </button>
         </div>
