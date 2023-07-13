@@ -26,13 +26,20 @@ export const Survey = ({ title, lowest, highest  }: SurveyProps) => {
     <div className="absolute bottom-0 right-0">
        {isOpen ? (
         <div className='flex flex-col items-end'>      
-          <button className="border-2 bg-white rounded drop-shadow-sm shadow-md w-10 flex flex-col items-center" onClick={() => setIsOpen(!isOpen)}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          <button className="bg-white rounded w-10 flex flex-col items-center" onClick={() => setIsOpen(!isOpen)}>
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              strokeWidth={1.5} 
+              stroke="currentColor" 
+              className="w-6 h-6">
+              <path 
+                strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
             </svg>
           </button>
 
-          <form onSubmit={handleSubmit} className="border-4 bg-white rounded drop-shadow-sm max-w-lg flex-col items-center content-center" >
+          <form onSubmit={handleSubmit} className="border-4 bg-white rounded max-w-lg flex-col items-center content-center" >
             <div className="m-2"><b>{title}</b></div>
             <div className="m-2">
               <button value="0" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">0</button>
@@ -46,9 +53,9 @@ export const Survey = ({ title, lowest, highest  }: SurveyProps) => {
               <button value="8" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">8</button>
               <button value="9" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">9</button>
               <button value="10" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">10</button>
-              <div className="flex w-44 m-2 justify-around">
-                <div className="flex">{lowest}</div>
-                <div className="flex">{highest}</div>
+              <div className="flow-root">
+                <div className="float-left m-2">{lowest}</div>
+                <div className="float-right m-2">{highest}</div>
               </div>
             </div>
 
@@ -56,18 +63,24 @@ export const Survey = ({ title, lowest, highest  }: SurveyProps) => {
           </form>
         </div>
       ) : (
-        <div>
-        <button className="border-2 bg-white rounded drop-shadow-sm shadow-md w-10 flex flex-col items-center" onClick={() => setIsOpen(!isOpen)}>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-          </svg>
-        </button>
-        <div className="border-4 bg-white rounded drop-shadow-sm max-w-lg flex-col items-center content-center">
-          <div className="m-2 "><b>{title}</b></div>
-          <button className="m-2 p-2 text-black rounded-xl bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400" onClick={() => setIsOpen(!isOpen)}>
-            Reply
+        <div className='flex flex-col items-end'>
+          <button className="bg-white rounded w-10 flex flex-col items-center" onClick={() => setIsOpen(!isOpen)}>
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke-width="1.5" 
+              stroke="currentColor" 
+              className="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+            </svg>
           </button>
-        </div>
+          <div className="bg-white rounded max-w-lg flex-col items-center content-center">
+            <div className="m-2 "><b>{title}</b></div>
+            <button className="m-2 p-2 text-black rounded-xl bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400" onClick={() => setIsOpen(!isOpen)}>
+              Reply
+            </button>
+          </div>
         </div>
       )}
 
