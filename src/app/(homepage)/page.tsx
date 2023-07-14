@@ -1,20 +1,20 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import { Logo } from '../../components/logo/PageLogo';
-import { Button } from '~/components/button/Button';
-import { Survey } from '~/components/survey/Survey';
+import { Logo } from '../../components/logo/PageLogo'
+import { Button } from '~/components/button/Button'
+import { RangeSurvey } from '~/components/survey/RangeSurvey'
 
 // TODO: Wth is this?
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Brewery | Home'
+  title: 'Brewery | Home',
 }
 
 const Home = () => {
   return (
     <main>
-      <header className="flex justify-between w-full">
+      <header className="flex w-full justify-between">
         <Logo />
         <nav>
           <ul className="flex gap-4">
@@ -43,9 +43,19 @@ const Home = () => {
           <Button type="primary" label="Create your first poll" />
         </div>
         <div>
-          <div>
-            <Survey title="What do you think of this website?" lowest="It hurts my eyes!" highest="Most beautiful site ever!" />
-          </div>
+          <RangeSurvey
+            title={'What do you think of this website?'}
+            description="test"
+            min={{
+              label: 'It hurts my eyes!',
+              number: 0,
+            }}
+            max={{
+              label: 'Most beautiful site ever!',
+              number: 10,
+            }}
+            step={1}
+          />
         </div>
       </section>
     </main>
