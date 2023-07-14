@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react';
+import { ChangeEvent, useState, useCallback } from 'react';
 
 
 interface SurveyProps {
@@ -10,17 +10,18 @@ interface SurveyProps {
 
 export const Survey = ({ title, lowest, highest  }: SurveyProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  	const [selectedRating, setSelectedRating] = useState("0");
+  const [selectedRating, setSelectedRating] = useState("0");
 
-	const handleRatingChange = (event: any) => {
+	const handleRatingClick = (event: any) => {
 		setSelectedRating(event.target.value);
 	};
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    alert(`Rating: ${selectedRating}`
-    );
+    // alert(`Rating: ${selectedRating}`);
+    console.log(`Submitted rating: ${selectedRating}`);
   };
+
 
   return (
     <div className="absolute bottom-0 right-0">
@@ -42,24 +43,24 @@ export const Survey = ({ title, lowest, highest  }: SurveyProps) => {
           <form onSubmit={handleSubmit} className="border-4 bg-white rounded max-w-lg flex-col items-center content-center" >
             <div className="m-2"><b>{title}</b></div>
             <div className="m-2">
-              <button value="0" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">0</button>
-              <button value="1" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">1</button>
-              <button value="2" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">2</button>
-              <button value="3" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">3</button>
-              <button value="4" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">4</button>
-              <button value="5" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">5</button>
-              <button value="6" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">6</button>
-              <button value="7" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">7</button>
-              <button value="8" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">8</button>
-              <button value="9" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">9</button>
-              <button value="10" onClick={handleRatingChange} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">10</button>
+              <button type="button" value="0" onClick={handleRatingClick} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">0</button>
+              <button type="button" value="1" onClick={handleRatingClick} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">1</button>
+              <button type="button" value="2" onClick={handleRatingClick} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">2</button>
+              <button type="button" value="3" onClick={handleRatingClick} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">3</button>
+              <button type="button" value="4" onClick={handleRatingClick} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">4</button>
+              <button type="button" value="5" onClick={handleRatingClick} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">5</button>
+              <button type="button" value="6" onClick={handleRatingClick} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">6</button>
+              <button type="button" value="7" onClick={handleRatingClick} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">7</button>
+              <button type="button" value="8" onClick={handleRatingClick} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">8</button>
+              <button type="button" value="9" onClick={handleRatingClick} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">9</button>
+              <button type="button" value="10" onClick={handleRatingClick} className="m-2 p-2 text-black rounded-sm bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">10</button>
               <div className="flow-root">
                 <div className="float-left m-2">{lowest}</div>
                 <div className="float-right m-2">{highest}</div>
               </div>
             </div>
 
-            <input type="submit" value="Submit" className="m-2 p-2 text-black rounded-xl bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400"></input>
+            <button type="submit" value="submit" className="m-2 p-2 text-black rounded-xl bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400">Submit</button>
           </form>
         </div>
       ) : (
@@ -77,7 +78,7 @@ export const Survey = ({ title, lowest, highest  }: SurveyProps) => {
           </button>
           <div className="bg-white rounded max-w-lg flex-col items-center content-center">
             <div className="m-2 "><b>{title}</b></div>
-            <button className="m-2 p-2 text-black rounded-xl bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400" onClick={() => setIsOpen(!isOpen)}>
+            <button type="button" className="m-2 p-2 text-black rounded-xl bg-gray-200 hover:bg-gray-400 active:bg-gray-400 focus:outline-none focus:bg-gray-400" onClick={() => setIsOpen(!isOpen)}>
               Reply
             </button>
           </div>
