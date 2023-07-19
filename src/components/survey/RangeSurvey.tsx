@@ -35,7 +35,7 @@ export const RangeSurvey = ({ description, max, min, title, step }: RangeSurveyP
   return (
     <form onSubmit={handleSubmit} className="max-w-lg flex-col content-center items-center rounded border-4 bg-white">
       <div className="m-2">
-        <p className="font-bold">{title}</p>
+        <p>{title}</p>
         <p>{description}</p>
       </div>
       <div className="m-2">
