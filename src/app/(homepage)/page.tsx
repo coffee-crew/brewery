@@ -45,7 +45,7 @@ const Home = () => {
         <div>
           <SurveyModal
             title={'What do you think of this website?'}
-            description="test"
+            description="Please give your opinion on a scale of 0 to 10"
             min={{
               label: 'It hurts my eyes!',
               number: 0,

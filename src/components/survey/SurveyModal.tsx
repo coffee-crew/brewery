@@ -52,9 +52,7 @@ export const SurveyModal = ({ description, max, min, title, step }: SurveyModalP
             </svg>
           </button>
           <div className="max-w-lg flex-col content-center items-center rounded bg-white">
-            <div className="m-2 ">
-              <b>{title}</b>
-            </div>
+            <div className="m-2 font-bold">{title}</div>
             <button
               type="button"
               className="m-2 rounded-xl bg-gray-200 p-2 text-black hover:bg-gray-400 focus:bg-gray-400 focus:outline-none active:bg-gray-400"
