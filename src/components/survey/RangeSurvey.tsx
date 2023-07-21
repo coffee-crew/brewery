@@ -39,23 +39,23 @@ export const RangeSurvey = ({ description, max, min, title, step }: RangeSurveyP
         <p>{description}</p>
       </div>
       <div className="m-2">
+        {/* nog 2 regels verwijderen? */}
         {surveyRange.map((number) => {
           return (
-            <>
-              <button
-                type="button"
-                value={number}
-                onClick={handleRatingClick}
-                className="m-2 rounded-sm bg-gray-200 p-2 text-black hover:bg-gray-400 focus:bg-gray-400 focus:outline-none active:bg-gray-400"
-              >
-                {number}
-              </button>
-            </>
+            <button
+              key={number}
+              type="button"
+              value={number}
+              onClick={handleRatingClick}
+              className="m-2 rounded-sm bg-gray-200 p-2 text-black hover:bg-gray-400 focus:bg-gray-400 focus:outline-none active:bg-gray-400"
+            >
+              {number}
+            </button>
           )
         })}
-        <div className="flow-root">
-          <div className="float-left m-2">{min.label}</div>
-          <div className="float-right m-2">{max.label}</div>
+        <div className="flex justify-between">
+          <div className="m-2">{min.label}</div>
+          <div className="m-2">{max.label}</div>
         </div>
       </div>
 
