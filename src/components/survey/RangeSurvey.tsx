@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { RangeSurveyButton } from './RangeSurveyButton'
 
 interface RangeSurveyProps {
   description?: string
@@ -22,15 +23,15 @@ export const RangeSurvey = ({ description, max, min, title, step }: RangeSurveyP
     setSelectedRating(event.target.value)
   }
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     console.log(`Submitted rating: ${selectedRating}`)
   }
 
-  const range = (start: number, stop: number, step: number) =>
+  const range = (start: number, stop: number, step: number): number[] =>
     Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step)
 
-  let surveyRange = range(min.number, max.number, step)
+  const surveyRange = range(min.number, max.number, step)
 
   return (
     <form onSubmit={handleSubmit} className="max-w-lg flex-col content-center items-center rounded border-4 bg-white">
@@ -39,20 +40,9 @@ export const RangeSurvey = ({ description, max, min, title, step }: RangeSurveyP
         <p>{description}</p>
       </div>
       <div className="m-2">
-        {/* nog 2 regels verwijderen? */}
-        {surveyRange.map((number) => {
-          return (
-            <button
-              key={number}
-              type="button"
-              value={number}
-              onClick={handleRatingClick}
-              className="m-2 rounded-sm bg-gray-200 p-2 text-black hover:bg-gray-400 focus:bg-gray-400 focus:outline-none active:bg-gray-400"
-            >
-              {number}
-            </button>
-          )
-        })}
+        {surveyRange.map((number) => (
+          <RangeSurveyButton key={number} number={number} onClick={handleRatingClick} />
+        ))}
         <div className="flex justify-between">
           <div className="m-2">{min.label}</div>
           <div className="m-2">{max.label}</div>
