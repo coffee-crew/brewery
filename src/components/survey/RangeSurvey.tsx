@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { SetStateAction, useState } from 'react'
 import { RangeSurveyButton } from './RangeSurveyButton'
 
 interface RangeSurveyProps {
@@ -19,7 +19,7 @@ interface RangeSurveyProps {
 export const RangeSurvey = ({ description, max, min, title, step }: RangeSurveyProps) => {
   const [selectedRating, setSelectedRating] = useState('0')
 
-  const handleRatingClick = (event: any) => {
+  const handleRatingClick = (event: { target: { value: SetStateAction<string> } }) => {
     setSelectedRating(event.target.value)
   }
 

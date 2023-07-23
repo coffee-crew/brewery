@@ -1,19 +1,17 @@
-import React from 'react'
+import React, { SetStateAction } from 'react'
 
 interface RangeSurveyButtonProps {
   number: number
-  onClick?: any
+  onClick?: (rating: string) => void
 }
 
-export const RangeSurveyButton = ({ number, onClick }: RangeSurveyButtonProps) => {
-  return (
-    <button
-      type="button"
-      value={number}
-      onClick={onClick}
-      className="m-2 rounded-sm bg-gray-200 p-2 text-black hover:bg-gray-400 focus:bg-gray-400 focus:outline-none active:bg-gray-400"
-    >
-      {number}
-    </button>
-  )
-}
+export const RangeSurveyButton = ({ number, onClick }: RangeSurveyButtonProps) => (
+  <button
+    type="button"
+    value={number}
+    onClick={onClick}
+    className="m-2 rounded-sm bg-gray-200 p-2 text-black hover:bg-gray-400 focus:bg-gray-400 focus:outline-none active:bg-gray-400"
+  >
+    {number}
+  </button>
+)
