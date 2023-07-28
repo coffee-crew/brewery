@@ -17,7 +17,7 @@ interface RangeSurveyProps {
 }
 
 export const RangeSurvey = ({ description, max, min, title, step }: RangeSurveyProps) => {
-  const [selectedRating, setSelectedRating] = useState('0')
+  const [selectedRating, setSelectedRating] = useState<string>()
 
   const handleRatingClick = (event: { target: { value: SetStateAction<string> } }) => {
     setSelectedRating(event.target.value)
@@ -25,6 +25,7 @@ export const RangeSurvey = ({ description, max, min, title, step }: RangeSurveyP
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    setSelectedRating(undefined)
     console.log(`Submitted rating: ${selectedRating}`)
   }
 
@@ -34,7 +35,10 @@ export const RangeSurvey = ({ description, max, min, title, step }: RangeSurveyP
   const surveyRange = range(min.number, max.number, step)
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg flex-col content-center items-center rounded border-4 bg-white">
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-lg flex-col content-center items-center rounded bg-white shadow-md shadow-black"
+    >
       <div className="m-2">
         <p className="font-bold">{title}</p>
         <p>{description}</p>
@@ -52,7 +56,8 @@ export const RangeSurvey = ({ description, max, min, title, step }: RangeSurveyP
       <button
         type="submit"
         value="submit"
-        className="m-2 rounded-xl bg-gray-200 p-2 text-black hover:bg-gray-400 focus:bg-gray-400 focus:outline-none active:bg-gray-400"
+        className="m-2 rounded-xl bg-gray-200 p-2 text-black hover:bg-gray-400 focus:bg-gray-400 focus:outline-none active:bg-gray-400 disabled:bg-pink-400"
+        disabled={!selectedRating}
       >
         Submit
       </button>

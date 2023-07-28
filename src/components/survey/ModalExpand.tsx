@@ -5,7 +5,7 @@ interface ModalExpandProps {
 
 export const ModalExpand = ({ isOpen, onClick }: ModalExpandProps) => {
   return (
-    <button className="flex w-10 flex-col items-center rounded bg-white" onClick={onClick}>
+    <button className="-z-10 flex w-10 flex-col items-center rounded bg-white shadow-md shadow-black" onClick={onClick}>
       {isOpen ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"

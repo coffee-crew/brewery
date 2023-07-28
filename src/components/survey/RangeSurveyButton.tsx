@@ -1,8 +1,6 @@
-import React, { SetStateAction } from 'react'
-
 interface RangeSurveyButtonProps {
   number: number
-  onClick?: (rating: string) => void
+  onClick?: () => void
 }
 
 export const RangeSurveyButton = ({ number, onClick }: RangeSurveyButtonProps) => (
