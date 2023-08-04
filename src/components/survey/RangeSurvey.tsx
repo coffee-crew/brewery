@@ -56,7 +56,7 @@ export const RangeSurvey = ({ description, max, min, title, step }: RangeSurveyP
       <button
         type="submit"
         value="submit"
-        className="m-2 rounded-xl bg-gray-200 p-2 text-black hover:bg-gray-400 focus:bg-gray-400 focus:outline-none active:bg-gray-400 disabled:bg-pink-400"
+        className="m-2 rounded-xl bg-sky-500 p-2 text-white hover:bg-sky-700 focus:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-900 active:bg-sky-700 disabled:bg-sky-700 disabled:opacity-50"
         disabled={!selectedRating}
       >
         Submit
